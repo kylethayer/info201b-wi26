@@ -1,0 +1,62 @@
+---
+title: "Demo with chart"
+author: "Kyle Thayer"
+format:
+  html:
+    embed-resources: true
+editor: visual
+---
+
+## Step 1: Load libraries
+*Note: I am going to hide the code that loads libraries, and I will ignore warnings*
+```{r}
+#| warnings: false
+#| include: false
+
+# I will be using dplyr and ggplot2
+library("dplyr")
+library("ggplot2")
+
+```
+
+## Step 1b: Load student data
+```{r}
+# Load fake student data
+fake_student_df <- read.csv("https://raw.githubusercontent.com/kylethayer/Info-201-au-24-datasets/refs/heads/main/demo_L03_fake_students.csv")
+```
+
+
+## Step 2: Show student ages
+```{r}
+ggplot(fake_student_df) +
+  geom_col(mapping = aes(x = student_num, y = age))
+
+```
+## Step 2b: Info about students
+```{r}
+avg_age <- fake_student_df |>
+    pull(age) |>
+    mean(na.rm = TRUE)
+
+```
+The average age of students (who we have age data for) is `r avg_age`. 
+
+
+## Step 3: Age vs. Final exam score
+```{r}
+ggplot(fake_student_df) +
+  geom_point(mapping = aes(x = age, y = final_exam_score))
+
+```
+
+## Step 4: Make a chart with the midwest demo dataset
+*Note: I think you might need a different code chunk for each chart display, but I'm not sure*
+```{r}
+ggplot(midwest) +
+  geom_point(mapping = aes(
+    x = percollege,
+    y = percadultpoverty
+  ))
+
+```
+
