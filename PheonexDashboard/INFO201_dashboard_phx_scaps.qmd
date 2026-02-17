@@ -1,0 +1,53 @@
+---
+title: "Untitled"
+format: html
+---
+
+## Overview
+
+This document is intended to help with the final in-class activity to practice making dashboards.
+
+This document contains scraps from the initial phase of playing around with some data (this isn't a complete report -- just a collection of code!). Specifically, this document has code chunks to load data about different neighborhoods in Phoenix, Arizona (just like on the first day of class).  For more information about the data, you can look back at your Day 1 activity or have a look at the codebook in the phs_dat_codebook.csv file).
+
+Your job is to create a **new** document that is formatted as a dashboard. This new dashboard should:
+
+*  Have two pages: "Data" and "Notes".
+*  "Data" should have at least two cards: At least one interesting graph and one table output.
+*  "Notes" should have at least two cards: One with text describing the author (you) and another with links to information about the data set.
+*  Make sure at least one of your visualizations is *interactive* and lets you either filter data or see some extra lable when hovering over a datapoint
+*  Make sure your table display is searchable.
+
+
+## Setup Environment
+
+```{r}
+#install.packages("DT")
+#install.packages("plotly")
+library(tidyverse)
+library(DT)
+library(plotly)
+```
+
+## Get Data
+
+```{r}
+id <- "1zoYDEdrJoRNTVJXG5BO4ZkSDHWg5XFpG"
+phx_dat <- read_csv2(sprintf("https://docs.google.com/uc?id=%s&export=download", id))
+```
+
+```{r}
+phx_dat |> glimpse()
+```
+## Some example visualizations
+
+```{r}
+phx_dat |>
+  ggplot(aes(x = LONGITUDE, y = LATITUDE, color = PERCAP)) +
+  geom_point()
+```
+
+```{r}
+phx_dat |>
+  ggplot(aes(x = MEDAGE, y  = PERCAP)) +
+  geom_point()
+```

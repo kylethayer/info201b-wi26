@@ -1,0 +1,65 @@
+Column Name:,Definition:
+GEOID,unique ID for U.S. Census tracts
+,
+noAC,No central air conditioning
+ndvi_mean,Normalized Difference Vegetation Index mean; bigger means more trees and plants!
+ndvi_sd,"Normalized Difference Vegetation Index standard deviation; Fancy measure of ""variation in plants"""
+MEDAGE,Median age
+,
+MHSEVAL,Median dollar value of owner-occupied housing units
+,
+PERCAP,Per capita income
+,
+PPUNIT,Average number of people per household
+,
+QASIAN,% Asian population
+,
+QBLACK,% African American (Black) population
+,
+QCVLUN,% Civilian labor force unemployed
+,
+QED12LES,% Population over 25 with less than 12 years of education
+,
+QESL,% Population speaking English as a second language with limited English proficiency
+,
+QEXTRCT,"% Employment in extractive industries (fishing, farming, mining, etc.)"
+,
+QFAM,% Children living in married couple families
+,
+QFEMALE,% Female
+,
+QFEMLBR,% Female participation in the labor force
+,
+QFHH,% Families with female-headed households with no spouse present
+,
+QHISP,% Hispanic population
+,
+QMOHO,% Population living in mobile homes
+,
+QNATAM,% Native American population
+,
+QNOAUTO,% Housing units with no car available
+,
+Qdisab,% Population with disability
+,
+QPOVTY,% Persons living in poverty
+,
+QRENTER,% Renter-occupied housing units
+,
+QRICH200,"% Families earning more than $200,000 per year"
+,
+QSERV,% Employment in service occupations
+,
+QSSBEN,% Households receiving Social Security benefits
+,
+QUNOCCH,% Unoccupied housing units
+,
+SOVI,Social Vulnerability Index value
+TOTAL_POPULATION,total population of individuals in census tract
+Qminority,Ethnic minority
+Qhisplati_imm,Latino immigrant
+QnoDiploma,No high school diploma
+Qsenior,More than 64 years of age
+QseniorAlone,More than 64 years of age and living alone
+Qalone,Living alone
+HVI,Heat Vulnerability Index value; calculated score of how vulnerable a community is to hear

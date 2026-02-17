@@ -1,0 +1,101 @@
+--- 
+title: "Fire Response Demo Dashboard"
+author: "Carson G Miller Rigoli"
+format: 
+  dashboard:
+    logo: "https://ischool.uw.edu/sites/default/files/inline-images/logo-black.jpg"
+    theme: simplex
+    embed-resources: true
+---
+
+```{r}
+#| output: false
+library(tidyverse)
+library(plotly)
+library(DT)
+
+calls <- read.csv("https://data.seattle.gov/resource/kzjm-xkqj.csv")
+#calls <- read.csv("calls.csv")
+```
+
+# Call Types 
+
+## Row 1 {height=20%}
+
+::: {.card title="Call Type Notes"}
+Call types may not be consistently labeled. Be sure to check the full list of recorded types.
+:::
+
+## Row 2 {height=80%}
+
+### Row 2 Column 1
+
+```{r}
+#| title: Call Type Viz
+
+calls |> ggplot(aes(y = type)) + geom_bar()
+```
+
+### Row 2 Column 2
+
+```{r}
+#| title: "Call Records"
+calls |> datatable()
+```
+
+
+# Call Locations 
+
+## Row 1 {height=20%}
+
+::: {.card title="Call Location Notes"}
+Double click on call types to filter by type in the visualization. Single click to remove a type.
+:::
+
+## Row 2 {height=80%}
+
+### Row 2 Column 1
+
+```{r}
+#| title: Call Location Viz
+p1 <- calls |>
+  ggplot(aes(x = longitude, y = latitude, color = type, label2 = datetime)) +
+  geom_point() +
+  geom_text(label = "UW", x = -122.3066, y = 47.6567, color = "red", shape = "x")+
+  geom_text(label = "Pike Place", x = -122.3418, y = 47.6094, color = "red", shape = "x")
+
+p1 |> ggplotly()
+```
+
+### Row 2 Column 2
+
+```{r}
+#| title: Call Records
+calls |> datatable()
+```
+
+# Notes
+
+## Row 1
+
+::: {.card title="Data Information"}
+This dashboard presents data from Seattle City real-time fire response data. Information is available on the [Seattle City Open Data Website](https://data.seattle.gov/Public-Safety/Seattle-Real-Time-Fire-911-Calls/kzjm-xkqj/about_data).
+:::
+
+
+::: {.card title="Author Information"}
+
+This dashboard was created by Dr. Carson G. Miller Rigoli at the University of Washington.
+:::
+
+## Row 2
+
+::: {.card title="Implementation Notes"}
+
+This dashboard was created for example purposes for INFO 201.
+
+Create notes as you follow along with the notes template at the in-class links accompanying this file.
+
+For more information, check out the Quarto documentation for [dashboards](https://quarto.org/docs/dashboards/layout.html).
+
+:::

@@ -1,0 +1,66 @@
+--- 
+title: "Fire Response Demo Dashboard"
+author: "Carson G Miller Rigoli"
+format: 
+  html:
+    theme: simplex
+    embed-resources: true
+---
+
+```{r}
+#| output: false
+
+#install.packages("plotly")
+#install.packages("DT")
+library(tidyverse)
+library(plotly)
+library(DT)
+
+calls <- read.csv("https://data.seattle.gov/resource/kzjm-xkqj.csv")
+#calls <- read.csv("calls.csv")
+```
+
+# Call Types 
+
+Call types may not be consistently labeled. Be sure to check the full list of recorded types.
+
+```{r}
+calls |> ggplot(aes(y = type)) + geom_bar()
+```
+
+
+```{r}
+calls |> glimpse()
+```
+
+
+# Call Locations 
+
+Double click on call types to filter by type in the visualization. Single click to remove a type.
+
+```{r}
+plot1 <- calls |>
+  ggplot(aes(x = longitude, y = latitude)) +
+  geom_point() +
+  geom_text(label = "UW", x = -122.3066, y = 47.6567, color = "red", shape = "x")+
+  geom_text(label = "Pike Place", x = -122.3418, y = 47.6094, color = "red", shape = "x")
+
+plot1 
+```
+
+```{r}
+calls |> glimpse()
+```
+
+# Notes
+
+This dashboard presents data from Seattle City real-time fire response data. Information is available on the [Seattle City Open Data Website](https://data.seattle.gov/Public-Safety/Seattle-Real-Time-Fire-911-Calls/kzjm-xkqj/about_data).
+
+This dashboard was created by Dr. Carson G. Miller Rigoli at the University of Washington.
+
+This dashboard was created for example purposes for INFO 201.
+
+Create notes as you follow along with the notes template at the in-class links accompanying this file.
+
+For more information, check out the Quarto documentation for [dashboards](https://quarto.org/docs/dashboards/layout.html).
+
