@@ -1,0 +1,51 @@
+---
+title: "Test layout"
+author: "Kyle"
+format: 
+  dashboard:
+    theme: [cyborg, custom.scss]
+    fontcolor: lightblue
+    embed-resources: true
+---
+
+# Page 1
+
+## Quarto
+
+Quarto enables you to weave together content and executable code into a finished document. To learn more about Quarto see <https://quarto.org>.
+
+## Running Code
+
+When you click the **Render** button a document will be generated that includes both content and the output of embedded code. You can embed code like this:
+
+```{r}
+1 + 1
+```
+
+You can add options to executable code like this
+
+```{r}
+#| echo: false
+2 * 2
+```
+
+The `echo: false` option disables the printing of code (only output is displayed).
+
+# Page 2
+
+test stuff
+
+```{r}
+#| fig-alt: "A line plot that shows population density on the x axis and percent college on the y axis, and generally there is higher percent college with more population density"
+#| 
+library(ggplot2)
+
+midwest |>
+  ggplot() +
+  geom_point(aes(x = popdensity , y = percollege))
+
+```
+## Author info {height=10%}
+The author is Kyle Thayer
+
+<img src="KyleThayer.jpg" height="50px" alt="photo of Kyle Thayer, a white guy with a beard and glasses" />
